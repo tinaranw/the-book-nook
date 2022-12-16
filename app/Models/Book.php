@@ -10,7 +10,7 @@ class Book extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['title', 'year_published', 'author', 'description', 'status', 'user_id'];
+     protected $fillable = ['title', 'year_published', 'author', 'description', 'status', 'genre_tags', 'synopsis'];
 
     //Relationship to User
     public function user(){

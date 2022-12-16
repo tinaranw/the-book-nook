@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
 use App\Models\Book as Book;
+use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -30,7 +31,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('catalogue.create');
     }
 
     /**
@@ -41,7 +42,23 @@ class BookController extends Controller
      */
     public function store(StorebookRequest $request)
     {
-        //
+
+        
+        //Data Validation
+        $formFields = $request->validate([
+            'title' => ['required', Rule::unique('books', 'title')],
+            'author' => 'required',
+            'year_published' => 'required',
+            'genre_tags' => 'required',
+            'synopsis' => 'required',
+            'description' => 'required',
+        ]);
+
+        // dd($formFields);
+
+        Book::create($formFields);
+
+        return redirect('/catalogue');
     }
 
     /**

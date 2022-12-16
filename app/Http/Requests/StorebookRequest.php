@@ -13,7 +13,9 @@ class StorebookRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        //False by defaut, change to true
+        //https://stackoverflow.com/questions/56235420/laravel-403-forbidden-on-custom-request-validation
+        return true;
     }
 
     /**
