@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('year_published');
             $table->string('author');
             $table->string('genre_tags');
+            $table->longText('synopsis');
             $table->longText('description');
             $table->enum('status',['0','1'])->default('0');
             $table->date('date_borrowed')->nullable();

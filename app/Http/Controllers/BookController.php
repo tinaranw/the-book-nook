@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
-use App\Models\book;
+use App\Models\Book as Book;
 
 class BookController extends Controller
 {
@@ -15,7 +15,12 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        return view('catalogue.index', [
+            //Function in Listing Model
+            // 'books' => Book::all()
+            'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(6)
+
+        ]);
     }
 
     /**
@@ -47,7 +52,9 @@ class BookController extends Controller
      */
     public function show(book $book)
     {
-        //
+        return view('catalogue.show', [
+            'book' => $book
+        ]);
     }
 
     /**

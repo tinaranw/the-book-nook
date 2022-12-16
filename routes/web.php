@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Welcome homepage
 Route::get('/', function () {
-    return view('catalogue.index');
+    return view('welcome');
 });
+
+//Show all books
+Route::get('/catalogue', [BookController::class, 'index']);
+
+//Show single book
+Route::get('/catalogue/{book}', [BookController::class, 'show']);
 
 
