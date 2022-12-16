@@ -40,6 +40,12 @@ Route::get('/catalog/{book}', [BookController::class, 'show']);
 //Store book data
 Route::post('/catalog', [BookController::class, 'store']);
 
+//Show edit a book form
+Route::get('/catalog/{book}/edit', [BookController::class, 'edit']);
+
+//Update book data
+Route::put('/catalog/{book}', [BookController::class, 'update']);
+
 
 
 

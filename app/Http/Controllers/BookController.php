@@ -82,7 +82,7 @@ class BookController extends Controller
      */
     public function edit(book $book)
     {
-        //
+        return view('catalog.edit', ['book' => $book]);
     }
 
     /**
@@ -94,7 +94,19 @@ class BookController extends Controller
      */
     public function update(UpdatebookRequest $request, book $book)
     {
-        //
+         //Data Validation
+         $formFields = $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'year_published' => 'required',
+            'genre_tags' => 'required',
+            'synopsis' => 'required',
+            'description' => 'required',
+        ]);
+
+        $book->update($formFields);
+
+        return redirect('/catalog');
     }
 
     /**

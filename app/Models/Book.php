@@ -28,6 +28,7 @@ class Book extends Model
             //where (name of the column with the input in the request())
             $query->where('title', 'like', '%' .request('search'). '%')
                 ->orWhere('description', 'like', '%' .request('search'). '%')
+                ->orWhere('synopsis', 'like', '%' .request('search'). '%')
                 ->orWhere('genre_tags', 'like', '%' .request('search'). '%');
         }
        

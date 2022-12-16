@@ -7,7 +7,7 @@
                 </svg>
             </div>
 
-            <input class="peer h-full w-full outline-none text-sm text-gray-700 pr-2" type="text" name="search" placeholder="Search something.." />
+            <input class="peer h-full w-full outline-none text-sm text-gray-700 pr-2" type="text" name="search" placeholder="Search for a book.." />
 
             <button type="submit" class="h-10 w-20 text-white rounded-l bg-pink-500 hover:bg-pink-500">
                 <p class="text-xs">Search</p>
