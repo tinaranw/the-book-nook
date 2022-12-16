@@ -29,16 +29,16 @@ Route::get('/', function () {
 });
 
 //Show all books
-Route::get('/catalogue', [BookController::class, 'index']);
+Route::get('/catalog', [BookController::class, 'index']);
 
 //Show upload a new book form
-Route::get('/catalogue/create', [BookController::class, 'create']);
+Route::get('/catalog/create', [BookController::class, 'create']);
 
 //Show single book, it must be at the bottom orelse everything else will be 404
-Route::get('/catalogue/{book}', [BookController::class, 'show']);
+Route::get('/catalog/{book}', [BookController::class, 'show']);
 
 //Store book data
-Route::post('/catalogue', [BookController::class, 'store']);
+Route::post('/catalog', [BookController::class, 'store']);
 
 
 

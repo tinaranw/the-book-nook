@@ -28,10 +28,10 @@
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-                <a class="mr-5 hover:text-gray-900">Home</a>
-                <a class="mr-5 hover:text-gray-900">Catalogue</a>
-                <a class="mr-5 hover:text-gray-900">About</a>
-                <a class="mr-5 hover:text-gray-900">Contact</a>
+                <a href="/" class="mr-5 hover:text-gray-900">Home</a>
+                <a href="/catalog" class="mr-5 hover:text-gray-900">Catalog</a>
+                <a href="/about" class="mr-5 hover:text-gray-900">About</a>
+                <a href="/contact" class="mr-5 hover:text-gray-900">Contact</a>
             </nav>
             <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-pink-500 rounded-full" viewBox="0 0 24 24">

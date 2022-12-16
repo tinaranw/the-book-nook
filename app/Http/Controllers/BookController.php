@@ -16,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('catalogue.index', [
+        return view('catalog.index', [
             //Function in Listing Model
             // 'books' => Book::all()
             'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(6)
@@ -31,7 +31,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('catalogue.create');
+        return view('catalog.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class BookController extends Controller
 
         Book::create($formFields);
 
-        return redirect('/catalogue');
+        return redirect('/catalog');
     }
 
     /**
@@ -69,7 +69,7 @@ class BookController extends Controller
      */
     public function show(book $book)
     {
-        return view('catalogue.show', [
+        return view('catalog.show', [
             'book' => $book
         ]);
     }
