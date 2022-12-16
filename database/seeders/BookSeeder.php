@@ -36,6 +36,7 @@ class BookSeeder extends Seeder
 
         Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love.";
         $book->status= '1';
+        $book->user_id= 1;
         $book->date_borrowed= Carbon::now()->format('Y-m-d H:i:s');
         $book->date_returned= Carbon::parse('2022-05-13');
         $book->save();
