@@ -34,8 +34,8 @@ Route::get('/catalog', [BookController::class, 'index']);
 //Show upload a new book form
 Route::get('/catalog/create', [BookController::class, 'create']);
 
-//Show single book, it must be at the bottom orelse everything else will be 404
-Route::get('/catalog/{book}', [BookController::class, 'show']);
+//Manage all book data
+Route::get('/catalog/manage', [BookController::class, 'manage']);
 
 //Store book data
 Route::post('/catalog', [BookController::class, 'store']);
@@ -45,6 +45,15 @@ Route::get('/catalog/{book}/edit', [BookController::class, 'edit']);
 
 //Update book data
 Route::put('/catalog/{book}', [BookController::class, 'update']);
+
+
+
+
+/////////
+//Show single book, it must be at the bottom orelse everything else will be 404
+Route::get('/catalog/{book}', [BookController::class, 'show']);
+
+
 
 
 

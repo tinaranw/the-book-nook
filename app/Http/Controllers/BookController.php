@@ -119,4 +119,12 @@ class BookController extends Controller
     {
         //
     }
+
+    /* Manage book data for admin side */
+     public function manage()
+     {
+        return view('catalog.manage', [
+            'books' => Book::all()
+        ]);
+     }
 }

@@ -5,11 +5,13 @@
             </h1>
             <p class="mb-8 leading-relaxed">The Book Nook is a non-profit digital library offering free universal access to millions of trending books for you to borrow.</p>
             <div class="flex justify-center">
-                <button class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse for a book now!</button>
+
+                <a href="/catalog"><button class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse for a book now!</button></a>
+
             </div>
         </div>
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+            <img class="object-cover object-center rounded" alt="hero" src="{{asset('/images/reading.svg')}}">
         </div>
     </div>
 </section>

@@ -29,6 +29,7 @@ class Book extends Model
             $query->where('title', 'like', '%' .request('search'). '%')
                 ->orWhere('description', 'like', '%' .request('search'). '%')
                 ->orWhere('synopsis', 'like', '%' .request('search'). '%')
+                ->orWhere('author', 'like', '%' .request('search'). '%')
                 ->orWhere('genre_tags', 'like', '%' .request('search'). '%');
         }
        
