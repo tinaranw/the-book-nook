@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BookController as AdminBookController;
+use App\Http\Controllers\User\BookController as UserBookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,11 @@ Route::get('/', function () {
 });
 
 //Show all books
-Route::get('/catalog', [AdminBookController::class, 'index']);
+// Route::get('/catalog', [AdminBookController::class, 'index']);
+
+//Show all books
+Route::get('/catalog', [UserBookController::class, 'index']);
+
 
 //Show upload a new book form
 Route::get('/catalog/create', [AdminBookController::class, 'create']);
