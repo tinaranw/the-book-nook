@@ -49,7 +49,7 @@
                 </a>
 
                 <a href="/register">
-                    <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                    <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 text-white">
                         <!-- <i class="fa-solid fa-user-plus mr-2"></i>  -->
                         Register
                     </button>

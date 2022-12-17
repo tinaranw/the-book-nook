@@ -15,7 +15,7 @@
                 <input type="password" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
 
-            <button class="text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Button</button>
+            <button class="text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Login</button>
             <p class="text-xs text-gray-500 mt-3 text-center">Don't have an account? <span class="text-pink-500">Register here.</span></p>
         </div>
         <div class="lg:w-2/3 md:w-1/2 overflow-hidden flex items-center justify-center relative">
