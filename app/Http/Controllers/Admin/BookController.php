@@ -19,11 +19,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('user.catalog.books.index', [
-            //Function in Listing Model
-            // 'books' => Book::all()
-            'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(2)
-
+        return view('admin.dashboard.books.index', [
+            'books' => Book::all()
         ]);
     }
 
@@ -45,8 +42,6 @@ class BookController extends Controller
      */
     public function store(StorebookRequest $request)
     {
-
-
         //Data Validation
         $formFields = $request->validate([
             'title' => ['required', Rule::unique('books', 'title')],
@@ -127,15 +122,6 @@ class BookController extends Controller
     }
 
     /* Manage book data for admin side */
-    public function manageBooks()
-    {
-        // dd("Admin Catalog");
-        return view('admin.dashboard.books.index', [
-            'books' => Book::all()
-        ]);
-    }
-
-    /* Manage book data for admin side */
     public function dashboard()
     {
 
@@ -148,6 +134,7 @@ class BookController extends Controller
         //Get all users
         $users = User::all();
 
-        return view('admin.dashboard')->with(compact('books', 'users', 'now'));
+        return view('admin.index')->with(compact('books', 'users', 'now'));
     }
 }
+

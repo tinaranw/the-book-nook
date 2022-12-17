@@ -77,8 +77,8 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Show upload a new book form
     Route::get('/dashboard/books/create', [AdminBookController::class, 'create']);
 
-    //Manage all book data
-    Route::get('/dashboard/books', [AdminBookController::class, 'manageBooks']);
+    //Show all books
+    Route::get('/dashboard/books', [AdminBookController::class, 'index']);
 
     //Store book data
     Route::post('/dashboard/books', [AdminBookController::class, 'store']);
@@ -91,10 +91,9 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
 
     //Delete book
     Route::delete('/dashboard/books/{book}', [AdminBookController::class, 'destroy']);
-
-   
 });
 
 /////////
 //Show single book, it must be at the bottom orelse everything else will be 404
 Route::get('/catalog/{book}', [UserBookController::class, 'show']);
+
