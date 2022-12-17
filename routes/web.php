@@ -70,6 +70,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 //Check if user has admin role, the user will be able to access CRUD functions
 Route::group(['middleware' => ['auth', 'admin:admin']], function () {
+
+    //Show main dashboard
+    Route::get('/catalog/dashboard', [AdminBookController::class, 'dashboard']);
+
     //Show upload a new book form
     Route::get('/catalog/books/create', [AdminBookController::class, 'create']);
 
@@ -88,8 +92,7 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Delete book
     Route::delete('/catalog/books/{book}', [AdminBookController::class, 'destroy']);
 
-    //Borrow a book
-    // Route::post('/catalog/borrow/{book}', [AdminBookController::class, 'borrow']);
+   
 });
 
 /////////

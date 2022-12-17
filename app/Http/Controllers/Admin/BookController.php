@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Book as Book;
+use App\Models\User as User;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
@@ -134,12 +135,19 @@ class BookController extends Controller
         ]);
     }
 
-    // public function borrow(book $book)
-    // {
-    //     $book->user_id = auth()->user()->id;
-    //     $book->status = '1';
-    //     $book->save();
+    /* Manage book data for admin side */
+    public function dashboard()
+    {
 
-    //     return redirect('/catalog');
-    // }
+        //Get all borrowed books
+        $books = Book::where('status', '1')->get();
+
+        //Check current date
+        $now = Carbon::now();
+
+        //Get all users
+        $users = User::all();
+
+        return view('admin.dashboard')->with(compact('books', 'users', 'now'));
+    }
 }
