@@ -30,7 +30,12 @@
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
                 <a href="/" class="mr-5 hover:text-gray-900">Home</a>
                 <a href="/catalog" class="mr-5 hover:text-gray-900">Catalog</a>
+
+                <!-- Only show My Books tab if a a user is logged in-->
+                @auth
                 <a href="/mybooks" class="mr-5 hover:text-gray-900">My Books</a>
+                @endauth
+
                 <a href="/about" class="mr-5 hover:text-gray-900">About</a>
                 <!-- <a href="/contact" class="mr-5 hover:text-gray-900">Contact</a> -->
             </nav>
@@ -40,7 +45,6 @@
             </a>
             <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
                 @auth
-
 
                 <p class="font-bold mr-4">
                     Welcome, <span class="text-pink-500">{{auth()->user()->name}}</span>
@@ -52,8 +56,8 @@
                         <i class="fa-solid fa-door-closed"></i> Logout
                     </button>
                 </form>
-
                 @else
+
                 <a href="/login">
                     <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 mr-4">
                         <!-- <i class="fa-solid fa-arrow-right-to-bracket mr-2"></i>  -->

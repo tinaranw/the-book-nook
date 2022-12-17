@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BookController as AdminBookController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\User\BookController as UserBookController;
 
 /*
@@ -50,15 +51,18 @@ Route::get('/login', function () {
 //User login
 Route::post('/userlogin', [LoginController::class, 'userlogin']);
 
-//Register
+//Show register form
 Route::get('/register', function () {
     return view('users.register');
 });
 
+//Create user
+Route::post('/createuser', [RegisterController::class, 'createuser']);
+
 //User logout
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::group(['middleware' => ['auth', 'checkrole:admin']], function () {
+Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Show upload a new book form
     Route::get('/catalog/create', [AdminBookController::class, 'create']);
 

@@ -12,6 +12,7 @@ class LoginController extends Controller
         // dd($request->all());
         if (Auth::attempt($request->only('email', 'password'))) {
             //If login succeeds
+            $request->session()->regenerate();
             return redirect('/');
         }
 
@@ -21,6 +22,11 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+
+        //Logout and regenerate token
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/');
     }
 }
