@@ -4,16 +4,18 @@
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col w-full mb-1 lg:w-11/12 md:w-11/12 mx-auto">
-            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Manage Users</h1>
-            <a href="/catalog/user/create" class="mb-4">
+            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Manage Books</h1>
+            <a href="/dashboard/books/create" class="mb-4">
                 <button class="float-right block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 text-white">
-                    <i class="fa-solid fa-plus"></i> Add new user
+                    <i class="fa-solid fa-plus"></i> Add a new book
                 </button>
             </a>
 
+
+            <!-- Books-->
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="py-3 px-6">
                                 Title
@@ -26,7 +28,7 @@
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Genre Tags
-                            </th>
+                                
                             <th scope="col" class="py-3 px-6">
                                 Action
                             </th>
@@ -50,12 +52,12 @@
                             <td class="py-1 px-6">
                                 <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
                                 <div>
-                                    <a href="/catalog/{{$book->id}}/edit" class="mb-4">
+                                    <a href="/dashboard/books/{{$book->id}}/edit" class="mb-4">
                                         <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
                                             <i class="fa-solid fa-pencil"></i>
                                         </button>
                                     </a>
-                                    <form method="POST" action="/catalog/{{$book->id}}">
+                                    <form method="POST" action="/dashboard/books/{{$book->id}}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">

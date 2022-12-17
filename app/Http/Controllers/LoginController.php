@@ -13,7 +13,7 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
 
             if (Auth::user()->role == 'admin') {
-                return redirect('/catalog/dashboard');
+                return redirect('/dashboard');
             } else {
                 return redirect('/catalog');
             }

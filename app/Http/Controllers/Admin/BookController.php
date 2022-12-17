@@ -34,7 +34,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.catalog.books.create');
+        return view('admin.dashboard.books.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class BookController extends Controller
 
         Book::create($formFields);
 
-        return redirect('/catalog/books');
+        return redirect('/dashboard/books');
     }
 
     /**
@@ -87,7 +87,7 @@ class BookController extends Controller
      */
     public function edit(book $book)
     {
-        return view('admin.catalog.books.edit', ['book' => $book]);
+        return view('admin.dashboard.books.edit', ['book' => $book]);
     }
 
     /**
@@ -111,7 +111,7 @@ class BookController extends Controller
 
         $book->update($formFields);
 
-        return redirect('/catalog/books');
+        return redirect('/dashboard/books');
     }
 
     /**
@@ -123,14 +123,14 @@ class BookController extends Controller
     public function destroy(book $book)
     {
         $book->delete();
-        return redirect('/catalog/books');
+        return redirect('/dashboard/books');
     }
 
     /* Manage book data for admin side */
     public function manageBooks()
     {
         // dd("Admin Catalog");
-        return view('admin.catalog.books.index', [
+        return view('admin.dashboard.books.index', [
             'books' => Book::all()
         ]);
     }

@@ -72,25 +72,25 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::group(['middleware' => ['auth', 'admin:admin']], function () {
 
     //Show main dashboard
-    Route::get('/catalog/dashboard', [AdminBookController::class, 'dashboard']);
+    Route::get('/dashboard', [AdminBookController::class, 'dashboard']);
 
     //Show upload a new book form
-    Route::get('/catalog/books/create', [AdminBookController::class, 'create']);
+    Route::get('/dashboard/books/create', [AdminBookController::class, 'create']);
 
     //Manage all book data
-    Route::get('/catalog/books', [AdminBookController::class, 'manageBooks']);
+    Route::get('/dashboard/books', [AdminBookController::class, 'manageBooks']);
 
     //Store book data
-    Route::post('/catalog/books', [AdminBookController::class, 'store']);
+    Route::post('/dashboard/books', [AdminBookController::class, 'store']);
 
     //Show edit a book form
-    Route::get('/catalog/books/{book}/edit', [AdminBookController::class, 'edit']);
+    Route::get('/dashboard/books/{book}/edit', [AdminBookController::class, 'edit']);
 
     //Update book data
-    Route::put('/catalog/books/{book}', [AdminBookController::class, 'update']);
+    Route::put('/dashboard/books/{book}', [AdminBookController::class, 'update']);
 
     //Delete book
-    Route::delete('/catalog/books/{book}', [AdminBookController::class, 'destroy']);
+    Route::delete('/dashboard/books/{book}', [AdminBookController::class, 'destroy']);
 
    
 });
