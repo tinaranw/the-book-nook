@@ -39,13 +39,26 @@
                 <span class="ml-3 text-xl">The Book Nook</span>
             </a>
             <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+                @auth
 
+
+                <p class="font-bold mr-4">
+                    Welcome, <span class="text-pink-500">{{auth()->user()->name}}</span>
+                </p>
+
+                <form class="inline" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                        <i class="fa-solid fa-door-closed"></i> Logout
+                    </button>
+                </form>
+
+                @else
                 <a href="/login">
                     <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 mr-4">
                         <!-- <i class="fa-solid fa-arrow-right-to-bracket mr-2"></i>  -->
                         Login
                     </button>
-
                 </a>
 
                 <a href="/register">
@@ -55,6 +68,8 @@
                     </button>
 
                 </a>
+
+                @endauth
 
 
             </div>

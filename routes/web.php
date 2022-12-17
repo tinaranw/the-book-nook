@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BookController as AdminBookController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User\BookController as UserBookController;
 
 /*
@@ -41,43 +42,42 @@ Route::get('/about', function () {
 //Show all books
 Route::get('/catalog', [UserBookController::class, 'index']);
 
-
-//Show upload a new book form
-Route::get('/catalog/create', [AdminBookController::class, 'create']);
-
-//Manage all book data
-Route::get('/catalog/manage', [AdminBookController::class, 'manage']);
-
-//Store book data
-Route::post('/catalog', [AdminBookController::class, 'store']);
-
-//Show edit a book form
-Route::get('/catalog/{book}/edit', [AdminBookController::class, 'edit']);
-
-//Update book data
-Route::put('/catalog/{book}', [AdminBookController::class, 'update']);
-
-//Delete book
-Route::delete('/catalog/{book}', [AdminBookController::class, 'destroy']);
-
-//Login
+//Show login form
 Route::get('/login', function () {
     return view('users.login');
-});
+})->name('login');
+
+//User login
+Route::post('/userlogin', [LoginController::class, 'userlogin']);
 
 //Register
 Route::get('/register', function () {
     return view('users.register');
 });
 
+//User logout
+Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::group(['middleware' => ['auth', 'checkrole:admin']], function () {
+    //Show upload a new book form
+    Route::get('/catalog/create', [AdminBookController::class, 'create']);
+
+    //Manage all book data
+    Route::get('/catalog/manage', [AdminBookController::class, 'manage']);
+
+    //Store book data
+    Route::post('/catalog', [AdminBookController::class, 'store']);
+
+    //Show edit a book form
+    Route::get('/catalog/{book}/edit', [AdminBookController::class, 'edit']);
+
+    //Update book data
+    Route::put('/catalog/{book}', [AdminBookController::class, 'update']);
+
+    //Delete book
+    Route::delete('/catalog/{book}', [AdminBookController::class, 'destroy']);
+});
 
 /////////
 //Show single book, it must be at the bottom orelse everything else will be 404
 Route::get('/catalog/{book}', [AdminBookController::class, 'show']);
-
-
-
-
-
-

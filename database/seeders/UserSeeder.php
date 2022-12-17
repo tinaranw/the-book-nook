@@ -21,14 +21,14 @@ class UserSeeder extends Seeder
         $user->name = 'Tinara Nathania';
         $user->email = 'tinaraadmin@gmail.com';
         $user->password = Hash::make('tinaraadmin');
-        $user->role = '1';
+        $user->role = 'admin';
         $user->save();
 
         $user = new User();
         $user->name = 'Tinara Nathania';
         $user->email = 'tinarauser@gmail.com';
         $user->password = Hash::make('tinarauser');
-        $user->role = '0';
+        $user->role = 'user';
         $user->save();
         
     }

@@ -46,4 +46,5 @@ class User extends Authenticatable
         //user has many listings
         return $this->hasMany(Book::class, 'user_id');
     }
+
 }
