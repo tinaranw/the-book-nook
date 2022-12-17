@@ -16,7 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('catalog.index', [
+        return view('user.catalog.index', [
             //Function in Listing Model
             // 'books' => Book::all()
             'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(6)
@@ -31,7 +31,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('catalog.create');
+        return view('admin.catalog.create');
     }
 
     /**
@@ -69,7 +69,7 @@ class BookController extends Controller
      */
     public function show(book $book)
     {
-        return view('catalog.show', [
+        return view('user.catalog.show', [
             'book' => $book
         ]);
     }
@@ -82,7 +82,7 @@ class BookController extends Controller
      */
     public function edit(book $book)
     {
-        return view('catalog.edit', ['book' => $book]);
+        return view('admin.catalog.edit', ['book' => $book]);
     }
 
     /**
@@ -117,13 +117,15 @@ class BookController extends Controller
      */
     public function destroy(book $book)
     {
-        //
+        $book->delete();
+        return redirect('/manage');
     }
 
     /* Manage book data for admin side */
      public function manage()
      {
-        return view('catalog.manage', [
+        // dd("hai");
+        return view('admin.catalog.manage', [
             'books' => Book::all()
         ]);
      }

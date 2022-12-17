@@ -46,6 +46,9 @@ Route::get('/catalog/{book}/edit', [BookController::class, 'edit']);
 //Update book data
 Route::put('/catalog/{book}', [BookController::class, 'update']);
 
+//Delete book
+Route::delete('/catalog/{book}', [BookController::class, 'destroy']);
+
 
 
 

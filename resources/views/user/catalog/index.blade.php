@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user.layout')
 @section('content')
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
@@ -21,7 +21,9 @@
                     <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog">
                     <div class="p-6">
                         <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ $book->author }}</h2>
-                        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $book->title }}</h1>
+                        <a href="/catalog/{{ $book->id }}">
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $book->title }}</h1>
+                        </a>
                         <p class="text-xs mb-3">{{ $book->synopsis }}</p>
                         <div class="flex items-center flex-wrap ">
                             <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user.layout')
 @section('content')
 @include('partials._hero')
 <section class="text-gray-600 body-font">
