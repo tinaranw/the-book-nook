@@ -11,7 +11,12 @@ class LoginController extends Controller
     {
         // dd($request->all());
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/');
+
+            if (Auth::user()->role == 'admin') {
+                return redirect('/catalog/books');
+            } else {
+                return redirect('/catalog');
+            }
         }
 
         return redirect('login');

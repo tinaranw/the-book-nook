@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Book as Book;
+use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
-use App\Models\Book as Book;
-use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -27,7 +28,9 @@ class BookController extends Controller
 
     public function mybooks()
     {
-        return view('user.catalog.mybooks', ['books' => auth()->user()->books()->get()]);
+        $now = Carbon::now();
+        $books = auth()->user()->books()->get();
+        return view('user.catalog.mybooks')->with(compact('now', 'books'));
     }
 
     /**
@@ -37,7 +40,6 @@ class BookController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -48,7 +50,6 @@ class BookController extends Controller
      */
     public function store(StorebookRequest $request)
     {
-
     }
 
     /**
@@ -72,7 +73,6 @@ class BookController extends Controller
      */
     public function edit(book $book)
     {
-       
     }
 
     /**
@@ -84,7 +84,6 @@ class BookController extends Controller
      */
     public function update(UpdatebookRequest $request, book $book)
     {
-         
     }
 
     /**
@@ -95,15 +94,18 @@ class BookController extends Controller
      */
     public function destroy(book $book)
     {
-        
     }
 
-    public function borrow(book $book){
+    public function borrow(book $book)
+    {
         $book->user_id = auth()->user()->id;
         $book->status = '1';
+        //Log day 
+        $book->date_borrowed = Carbon::now()->format('Y-m-d H:i:s');
+        //Add Due Date
+        $book->date_returned = Carbon::now()->addDays(7);
         $book->save();
 
         return redirect('/catalog/mybooks');
     }
-
 }

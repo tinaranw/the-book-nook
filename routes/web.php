@@ -71,22 +71,22 @@ Route::post('/logout', [LoginController::class, 'logout']);
 //Check if user has admin role, the user will be able to access CRUD functions
 Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Show upload a new book form
-    Route::get('/catalog/create', [AdminBookController::class, 'create']);
+    Route::get('/catalog/books/create', [AdminBookController::class, 'create']);
 
     //Manage all book data
-    Route::get('/catalog/manage', [AdminBookController::class, 'manage']);
+    Route::get('/catalog/books', [AdminBookController::class, 'manageBooks']);
 
     //Store book data
-    Route::post('/catalog', [AdminBookController::class, 'store']);
+    Route::post('/catalog/books', [AdminBookController::class, 'store']);
 
     //Show edit a book form
-    Route::get('/catalog/{book}/edit', [AdminBookController::class, 'edit']);
+    Route::get('/catalog/books/{book}/edit', [AdminBookController::class, 'edit']);
 
     //Update book data
-    Route::put('/catalog/{book}', [AdminBookController::class, 'update']);
+    Route::put('/catalog/books/{book}', [AdminBookController::class, 'update']);
 
     //Delete book
-    Route::delete('/catalog/{book}', [AdminBookController::class, 'destroy']);
+    Route::delete('/catalog/books/{book}', [AdminBookController::class, 'destroy']);
 
     //Borrow a book
     // Route::post('/catalog/borrow/{book}', [AdminBookController::class, 'borrow']);

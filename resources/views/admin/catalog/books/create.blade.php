@@ -7,7 +7,7 @@
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Add a New Book</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Upload the new book.</p>
         </div>
-        <form method="POST" action="/catalog" enctype="multipart/form-data">
+        <form method="POST" action="/catalog/books" enctype="multipart/form-data">
             @csrf
             <div class="lg:w-1/2 md:w-2/3 mx-auto">
                 <div class="flex flex-wrap -m-2">

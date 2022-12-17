@@ -6,7 +6,7 @@
             <p class="mb-8 leading-relaxed">The Book Nook is a non-profit digital library offering free universal access to millions of trending books for you to borrow.</p>
             <div class="flex justify-center">
 
-                <a href="/catalog"><button class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse for a book now!</button></a>
+                <a href="/login"><button class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Login to borrow a book now!</button></a>
 
             </div>
         </div>

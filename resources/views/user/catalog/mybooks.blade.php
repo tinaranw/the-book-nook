@@ -43,14 +43,20 @@
                         </div>
 
                         <p class="text-xs mb-3">{{ $book->synopsis }}</p>
+
+                        @if($now->between($book->date_borrowed, $book->date_returned))
+
                         <div class="flex items-center flex-wrap ">
-                            <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Deadline: {{ $book->date_returned }}</a>
                         </div>
+                        @else
+                        <div class="flex items-center flex-wrap ">
+                            <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Due date has passed!</a>
+                        </div>
+
+                        @endif
+
+
                     </div>
                 </div>
             </div>

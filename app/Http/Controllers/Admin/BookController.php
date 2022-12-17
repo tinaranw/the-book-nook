@@ -18,7 +18,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('user.catalog.index', [
+        return view('user.catalog.books.index', [
             //Function in Listing Model
             // 'books' => Book::all()
             'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(2)
@@ -33,7 +33,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.catalog.create');
+        return view('admin.catalog.books.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class BookController extends Controller
 
         Book::create($formFields);
 
-        return redirect('/catalog');
+        return redirect('/catalog/books');
     }
 
     /**
@@ -73,9 +73,9 @@ class BookController extends Controller
      */
     public function show(book $book)
     {
-        return view('user.catalog.show', [
-            'book' => $book
-        ]);
+        // return view('user.catalog.show', [
+        //     'book' => $book
+        // ]);
     }
 
     /**
@@ -86,7 +86,7 @@ class BookController extends Controller
      */
     public function edit(book $book)
     {
-        return view('admin.catalog.edit', ['book' => $book]);
+        return view('admin.catalog.books.edit', ['book' => $book]);
     }
 
     /**
@@ -110,7 +110,7 @@ class BookController extends Controller
 
         $book->update($formFields);
 
-        return redirect('/catalog/manage');
+        return redirect('/catalog/books');
     }
 
     /**
@@ -122,24 +122,24 @@ class BookController extends Controller
     public function destroy(book $book)
     {
         $book->delete();
-        return redirect('/catalog/manage');
+        return redirect('/catalog/books');
     }
 
     /* Manage book data for admin side */
-    public function manage()
+    public function manageBooks()
     {
         // dd("Admin Catalog");
-        return view('admin.catalog.manage', [
+        return view('admin.catalog.books.index', [
             'books' => Book::all()
         ]);
     }
 
-    public function borrow(book $book)
-    {
-        $book->user_id = auth()->user()->id;
-        $book->status = '1';
-        $book->save();
+    // public function borrow(book $book)
+    // {
+    //     $book->user_id = auth()->user()->id;
+    //     $book->status = '1';
+    //     $book->save();
 
-        return redirect('/catalog');
-    }
+    //     return redirect('/catalog');
+    // }
 }
