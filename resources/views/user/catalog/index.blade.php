@@ -44,4 +44,11 @@
         </div>
     </div>
 </section>
+
+
+<!-- Pagination -->
+<!-- <div class="mt-6 p-4">
+    {{ $books->links() }}
+</div> -->
 @endsection
+

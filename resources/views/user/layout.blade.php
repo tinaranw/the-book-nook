@@ -31,7 +31,7 @@
                 <a href="/" class="mr-5 hover:text-gray-900">Home</a>
                 <a href="/catalog" class="mr-5 hover:text-gray-900">Catalog</a>
                 <a href="/about" class="mr-5 hover:text-gray-900">About</a>
-                <a href="/contact" class="mr-5 hover:text-gray-900">Contact</a>
+                <!-- <a href="/contact" class="mr-5 hover:text-gray-900">Contact</a> -->
             </nav>
             <a href="/" class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
                 <img src="{{ asset('images/logo.png') }}" class="object-cover h-6 w-12" />

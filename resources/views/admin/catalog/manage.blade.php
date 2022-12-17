@@ -3,7 +3,7 @@
 
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-12 mx-auto">
-        <div class="flex flex-col w-full mb-1 lg:w-10/12 md:w-10/12 mx-auto">
+        <div class="flex flex-col w-full mb-1 lg:w-11/12 md:w-11/12 mx-auto">
             <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Manage Books</h1>
             <a href="/catalog/create" class="mb-4">
                 <button class="float-right block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
@@ -65,13 +65,21 @@
                                                     </td> -->
                                         <td class="py-2">
 
-                                            <form method="POST" action="/catalog/{{$book->id}}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </form>
+                                            <div>
+                                                <a href="/catalog/{{$book->id}}/edit" class="mb-4">
+                                                    <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                                                        <i class="fa-solid fa-pencil"></i>
+                                                    </button>
+                                                </a>
+                                                <form method="POST" action="/catalog/{{$book->id}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+
 
 
                                         </td>

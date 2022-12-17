@@ -16,7 +16,7 @@
                         </svg>
                     </div>
                     <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Fantasy</h2>
-                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                    <p class="leading-relaxed text-base">Typically features the use of magic or other supernatural phenomena in the plot, setting, or theme</p>
                 </div>
             </div>
             <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -29,7 +29,7 @@
                         </svg>
                     </div>
                     <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Science Fiction</h2>
-                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                    <p class="leading-relaxed text-base">A form of fiction that deals principally with the impact of actual or imagined science upon society or individuals.</p>
                 </div>
             </div>
             <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -41,7 +41,7 @@
                         </svg>
                     </div>
                     <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Mystery</h2>
-                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                    <p class="leading-relaxed text-base">A genre of fiction that follows a crime (like a murder or a disappearance) from the moment it is committed to the moment it is solved.</p>
                 </div>
             </div>
             <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -51,8 +51,8 @@
                             <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
                         </svg>
                     </div>
-                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Horror</h2>
-                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                    <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Drama</h2>
+                    <p class="leading-relaxed text-base">A genre of literature, film, and television that is meant to scare, startle, shock, and even repulse audiences.</p>
                 </div>
             </div>
             <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -63,7 +63,7 @@
                         </svg>
                     </div>
                     <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Romance</h2>
-                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                    <p class="leading-relaxed text-base">The aim of the genre is simple, showcasing a love story where two people overcome adversity to obtain their happily ever after.</p>
                 </div>
             </div>
             <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -74,7 +74,7 @@
                         </svg>
                     </div>
                     <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Graphic Novel</h2>
-                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                    <p class="leading-relaxed text-base">It is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.</p>
                 </div>
             </div>
         </div>

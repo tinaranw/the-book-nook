@@ -30,6 +30,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//About page
+Route::get('/about', function () {
+    return view('about');
+});
+
 //Show all books
 // Route::get('/catalog', [AdminBookController::class, 'index']);
 

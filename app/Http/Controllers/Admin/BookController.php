@@ -20,7 +20,7 @@ class BookController extends Controller
         return view('user.catalog.index', [
             //Function in Listing Model
             // 'books' => Book::all()
-            'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(6)
+            'books' => Book::latest()->filter(request(['genre_tags', 'search']))->paginate(2)
 
         ]);
     }
@@ -109,7 +109,7 @@ class BookController extends Controller
 
         $book->update($formFields);
 
-        return redirect('/catalog');
+        return redirect('/catalog/manage');
     }
 
     /**
