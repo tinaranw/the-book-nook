@@ -30,6 +30,7 @@
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
                 <a href="/" class="mr-5 hover:text-gray-900">Home</a>
                 <a href="/catalog" class="mr-5 hover:text-gray-900">Catalog</a>
+                <a href="/mybooks" class="mr-5 hover:text-gray-900">My Books</a>
                 <a href="/about" class="mr-5 hover:text-gray-900">About</a>
                 <!-- <a href="/contact" class="mr-5 hover:text-gray-900">Contact</a> -->
             </nav>
@@ -38,15 +39,22 @@
                 <span class="ml-3 text-xl">The Book Nook</span>
             </a>
             <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-                <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 mr-4">
-                    <!-- <i class="fa-solid fa-arrow-right-to-bracket mr-2"></i>  -->
-                    Login
-                </button>
 
-                <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
-                    <!-- <i class="fa-solid fa-user-plus mr-2"></i>  -->
-                    Register
-                </button>
+                <a href="/login">
+                    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 mr-4">
+                        <!-- <i class="fa-solid fa-arrow-right-to-bracket mr-2"></i>  -->
+                        Login
+                    </button>
+
+                </a>
+
+                <a href="/register">
+                    <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                        <!-- <i class="fa-solid fa-user-plus mr-2"></i>  -->
+                        Register
+                    </button>
+
+                </a>
 
 
             </div>
@@ -67,7 +75,7 @@
             <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 The Book Nook —
                 <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@thebooknook.id</a>
             </p>
-            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <!-- <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                 <a class="text-gray-500">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -90,7 +98,7 @@
                         <circle cx="4" cy="4" r="2" stroke="none"></circle>
                     </svg>
                 </a>
-            </span>
+            </span> -->
         </div>
     </footer>
 

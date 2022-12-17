@@ -60,6 +60,15 @@ Route::put('/catalog/{book}', [AdminBookController::class, 'update']);
 //Delete book
 Route::delete('/catalog/{book}', [AdminBookController::class, 'destroy']);
 
+//Login
+Route::get('/login', function () {
+    return view('users.login');
+});
+
+//Register
+Route::get('/register', function () {
+    return view('users.register');
+});
 
 
 
