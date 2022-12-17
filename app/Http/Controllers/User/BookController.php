@@ -25,6 +25,11 @@ class BookController extends Controller
         ]);
     }
 
+    public function mybooks()
+    {
+        return view('user.catalog.mybooks', ['books' => auth()->user()->books()->get()]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -91,6 +96,14 @@ class BookController extends Controller
     public function destroy(book $book)
     {
         
+    }
+
+    public function borrow(book $book){
+        $book->user_id = auth()->user()->id;
+        $book->status = '1';
+        $book->save();
+
+        return redirect('/catalog/mybooks');
     }
 
 }

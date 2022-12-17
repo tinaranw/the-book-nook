@@ -43,7 +43,12 @@
                         <span class="inline-flex justify-center items-center ml-4">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </span>
-                        <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+                        <form class="inline" method="POST" action="/logout">
+                            @csrf
+                            <button type="submit">
+                                <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+                            </button>
+                        </form>
                     </a>
                 </li>
             </ul>

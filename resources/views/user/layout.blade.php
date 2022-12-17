@@ -33,7 +33,7 @@
 
                 <!-- Only show My Books tab if a a user is logged in-->
                 @auth
-                <a href="/mybooks" class="mr-5 hover:text-gray-900">My Books</a>
+                <a href="/catalog/mybooks" class="mr-5 hover:text-gray-900">My Books</a>
                 @endauth
 
                 <a href="/about" class="mr-5 hover:text-gray-900">About</a>

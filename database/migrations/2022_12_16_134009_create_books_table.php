@@ -22,7 +22,9 @@ return new class extends Migration
             $table->string('genre_tags');
             $table->longText('synopsis');
             $table->longText('description');
-            $table->enum('status',['0','1'])->default('0');
+            $table->enum('status',['0','1', '3'])
+            ->default('0')
+            ->comment('0 = Available, 1 = Borrowed, 2 = Due');
             $table->date('date_borrowed')->nullable();
             $table->date('date_returned')->nullable();
             $table->foreignId('user_id')->nullable()->constrained();

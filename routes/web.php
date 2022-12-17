@@ -43,6 +43,12 @@ Route::get('/about', function () {
 //Show all books
 Route::get('/catalog', [UserBookController::class, 'index']);
 
+//Show all borrowed books
+Route::get('/catalog/mybooks', [UserBookController::class, 'mybooks']);
+
+//Borrow a book
+Route::post('/catalog/borrow/{book}', [UserBookController::class, 'borrow']);
+
 //Show login form
 Route::get('/login', function () {
     return view('users.login');
@@ -62,6 +68,7 @@ Route::post('/createuser', [RegisterController::class, 'createuser']);
 //User logout
 Route::post('/logout', [LoginController::class, 'logout']);
 
+//Check if user has admin role, the user will be able to access CRUD functions
 Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Show upload a new book form
     Route::get('/catalog/create', [AdminBookController::class, 'create']);
@@ -80,8 +87,11 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
 
     //Delete book
     Route::delete('/catalog/{book}', [AdminBookController::class, 'destroy']);
+
+    //Borrow a book
+    // Route::post('/catalog/borrow/{book}', [AdminBookController::class, 'borrow']);
 });
 
 /////////
 //Show single book, it must be at the bottom orelse everything else will be 404
-Route::get('/catalog/{book}', [AdminBookController::class, 'show']);
+Route::get('/catalog/{book}', [UserBookController::class, 'show']);

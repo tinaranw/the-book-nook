@@ -17,13 +17,32 @@
                     <span class="title-font font-medium text-2xl text-gray-900">
                         @if( $book->status == 0)
                         Available
-                        @elseif($book->status == 1)
+                        @elseif($book->user_id == Auth::user()->id)
                         Borrowed
                         @else
-                        Requesting
+                        Unavailable
                         @endif
                     </span>
-                    <button class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Borrow</button>
+                    @auth
+                    @if($book->status == 1 && $book->user_id == Auth::user()->id)
+                    <!-- if available -->
+                    <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Already borrowed</button>
+
+                    @elseif($book->status == 1)
+                    <!-- if borrowed by someone else -->
+                    <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Unavailable</button>
+
+                    @elseif($book->status == 0)
+                    <form method="POST" action="/catalog/borrow/{{$book->id}}">
+                        @csrf
+                        <button class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Borrow</button>
+                    </form>
+                    @else
+                    <!-- if requesting -->
+                    <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Unavailable</button>
+                    @endif
+                    @endauth
+
                 </div>
             </div>
         </div>

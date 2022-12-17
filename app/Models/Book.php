@@ -14,8 +14,9 @@ class Book extends Model
 
     //Relationship to User
     public function user(){
-        //(class, foreign id)
-        return $this->belongsTo(User::class, 'user_id');
+        //(class, foreign id) 
+        //('id' -> reference)
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function scopeFilter($query, array $filters){

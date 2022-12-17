@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Book as Book;
+use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
-use App\Models\Book as Book;
-use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -44,7 +45,7 @@ class BookController extends Controller
     public function store(StorebookRequest $request)
     {
 
-        
+
         //Data Validation
         $formFields = $request->validate([
             'title' => ['required', Rule::unique('books', 'title')],
@@ -97,8 +98,8 @@ class BookController extends Controller
      */
     public function update(UpdatebookRequest $request, book $book)
     {
-         //Data Validation
-         $formFields = $request->validate([
+        //Data Validation
+        $formFields = $request->validate([
             'title' => 'required',
             'author' => 'required',
             'year_published' => 'required',
@@ -125,11 +126,20 @@ class BookController extends Controller
     }
 
     /* Manage book data for admin side */
-     public function manage()
-     {
+    public function manage()
+    {
         // dd("Admin Catalog");
         return view('admin.catalog.manage', [
             'books' => Book::all()
         ]);
-     }
+    }
+
+    public function borrow(book $book)
+    {
+        $book->user_id = auth()->user()->id;
+        $book->status = '1';
+        $book->save();
+
+        return redirect('/catalog');
+    }
 }

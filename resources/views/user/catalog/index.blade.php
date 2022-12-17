@@ -25,17 +25,32 @@
                             <h1 class="title-font text-lg font-medium text-gray-900 mb-1">{{ $book->title }}</h1>
                         </a>
                         <div class="mb-4">
-                        <x-genre-tags :tagsCsv="$book->genre_tags" />
+                            <x-genre-tags :tagsCsv="$book->genre_tags" />
                         </div>
-                        
+
                         <p class="text-xs mb-3">{{ $book->synopsis }}</p>
                         <div class="flex items-center flex-wrap ">
-                            <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+
+                            @auth
+                            @if($book->status == 1 && $book->user_id == Auth::user()->id)
+                            <!-- if available -->
+                            <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Already borrowed</button>
+
+                            @elseif($book->status == 1)
+                            <!-- if borrowed by someone else -->
+                            <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Unavailable</button>
+
+                            @elseif($book->status == 0)
+                            <form method="POST" action="/catalog/borrow/{{$book->id}}">
+                                @csrf
+                                <button class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Borrow</button>
+                            </form>
+                            @else
+                            <!-- if requesting -->
+                            <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Unavailable</button>
+                            @endif
+                            @endauth
+
                         </div>
                     </div>
                 </div>
@@ -51,4 +66,3 @@
     {{ $books->links() }}
 </div> -->
 @endsection
-

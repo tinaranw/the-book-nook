@@ -68,7 +68,7 @@ class BookSeeder extends Seeder
         $book->description = "Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel's story is about to be completely rewritten.
 
         Insightful, bold, irreverent, and raw, The Fault in Our Stars is award-winning author John Green's most ambitious and heartbreaking work yet, brilliantly exploring the funny, thrilling, and tragic business of being alive and in love.";
-        $book->status = '1';
+        $book->status = '2';
         $book->date_borrowed = Carbon::now()->format('Y-m-d H:i:s');
         $book->date_returned = Carbon::parse('2022-05-13');
         $book->save();
