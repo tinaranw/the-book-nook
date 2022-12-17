@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
 use App\Models\Book as Book;
@@ -54,7 +55,9 @@ class BookController extends Controller
             'description' => 'required',
         ]);
 
-        // dd($formFields);
+        if ($request->hasFile('cover_image')) {
+            $formFields['cover_image'] = $request->file('cover_image')->store('cover_image', 'public');
+        }
 
         Book::create($formFields);
 
@@ -118,13 +121,13 @@ class BookController extends Controller
     public function destroy(book $book)
     {
         $book->delete();
-        return redirect('/manage');
+        return redirect('/catalog/manage');
     }
 
     /* Manage book data for admin side */
      public function manage()
      {
-        // dd("hai");
+        // dd("Admin Catalog");
         return view('admin.catalog.manage', [
             'books' => Book::all()
         ]);

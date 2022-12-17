@@ -7,8 +7,8 @@
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Add a New Book</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Upload the new book.</p>
         </div>
-        <form method="POST" action="/catalog">
-        @csrf
+        <form method="POST" action="/catalog" enctype="multipart/form-data">
+            @csrf
             <div class="lg:w-1/2 md:w-2/3 mx-auto">
                 <div class="flex flex-wrap -m-2">
                     <div class="p-2 w-full">
@@ -48,15 +48,15 @@
                         @enderror
                     </div>
 
-                    <!-- <div class="p-2 w-full">
-                    <div class="relative">
-                        <label for="image" class="eading-7 text-sm text-gray-600">Default file input example</label>
-                        <input type="text" id="image" name="image" placeholder="Example: Fantasy, Adventure, Romance" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="cover_image" class="leading-7 text-sm text-gray-600">Book Cover Image</label>
+                            <input type="file" class="rounded border border-gray-300 p-2 w-full bg-gray-100" name="cover_image" />
+                        </div>
+                        @error('cover_image')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
-                    @error('image')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div> -->
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="synopsis" class="leading-7 text-sm text-gray-600">Synopsis</label>

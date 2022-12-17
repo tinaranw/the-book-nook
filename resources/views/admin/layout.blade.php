@@ -26,20 +26,17 @@
 <body>
 
     <main>
-        <div class="h-screen flex flex-row flex-wrap">
 
-            @include('partials._sidebar')
-
-            <!-- Content -->
-            <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-200 text-gray-800">
-                <div class="fixed flex flex-col top-0 right-0 w-4/5 bg-white h-full border-r">
-
-
-                    @yield('content')
-                </div>
+        <div class="relative">
+            <div class="relative md:fixed w-full min-h-screen inset-0">
+                @include('partials._sidebar')
             </div>
-
+            <div class="w-full md:w-10/12 ml-auto">
+                @yield('content')
+            </div>
         </div>
+
+
     </main>
 
 

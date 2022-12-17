@@ -1,63 +1,60 @@
 @extends('admin.layout')
 @section('content')
-<div class="flex justify-center p-6">
-    <div class="block rounded-lg bg-white min-w-full">
-        <a href="/catalog/create">
-            <button class="block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
-                <i class="fa-solid fa-plus"></i> Add a new book
-            </button>
-        </a>
-    </div>
-</div>
 
+<section class="text-gray-600 body-font relative">
+    <div class="container px-5 py-12 mx-auto">
+        <div class="flex flex-col w-full mb-1 lg:w-10/12 md:w-10/12 mx-auto">
+            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Manage Books</h1>
+            <a href="/catalog/create" class="mb-4">
+                <button class="float-right block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                    <i class="fa-solid fa-plus"></i> Add a new book
+                </button>
+            </a>
 
-<div class="flex justify-center p-6">
-    <div class="block p-6 rounded-lg border-2 border-gray-100 bg-white min-w-full">
-        <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
+            <div class="block p-6 rounded-lg border-2 border-gray-100 bg-white min-w-full">
+                <div class="flex flex-col">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="overflow-hidden">
 
-
-
-                        <!-- Books Table -->
-                        <table class="min-w-full">
-                            <thead>
-                                <tr>
-                                    <td>Title</td>
-                                    <td>Author</td>
-                                    <td>Year Published</td>
-                                    <td>Genre Tags</td>
-                                    <!-- <td>Synopsis</td>
+                                <!-- Books Table -->
+                                <table class="min-w-full">
+                                    <thead>
+                                        <tr>
+                                            <td>Title</td>
+                                            <td>Author</td>
+                                            <td>Year Published</td>
+                                            <td>Genre Tags</td>
+                                            <!-- <td>Synopsis</td>
                                                         <td>Description</td> -->
-                                    <!-- <td>Status</td>
+                                            <!-- <td>Status</td>
                                                         <td>Lent to</td>
                                                         <td>Date Borrowed</td>
                                                         <td>Date Returned</td> -->
-                                    <td>Action</td>
+                                            <td>Action</td>
 
-                                </tr>
-                            </thead>
-                            @foreach($books as $book)
-                            <tr>
-                                <td class="py-2">
-                                    <p class="text-xs">{{ $book->title }}</p>
-                                </td>
-                                <td class="py-2">
-                                    <p class="text-xs">{{ $book->author }}</p>
-                                </td>
-                                <td class="py-2">
-                                    <p class="text-xs">{{ $book->year_published }}</p>
-                                </td>
-                                <td class="py-2">
-                                    <p class="text-xs">{{ $book->genre_tags }}</p>
-                                </td>
-                                <!-- <td>{{ $book->synopsis }}</td>
+                                        </tr>
+                                    </thead>
+                                    @foreach($books as $book)
+                                    <tr>
+                                        <td class="py-2">
+                                            <p class="text-xs">{{ $book->title }}</p>
+                                        </td>
+                                        <td class="py-2">
+                                            <p class="text-xs">{{ $book->author }}</p>
+                                        </td>
+                                        <td class="py-2">
+                                            <p class="text-xs">{{ $book->year_published }}</p>
+                                        </td>
+                                        <td class="py-2">
+                                            <p class="text-xs">{{ $book->genre_tags }}</p>
+                                        </td>
+                                        <!-- <td>{{ $book->synopsis }}</td>
                                                     <td>{{ $book->description }}</td> -->
-                                <!-- <td class="py-2">
+                                        <!-- <td class="py-2">
                                                         <p class="text-xs">{{ $book->status }}</p>
                                                     </td> -->
-                                <!-- <td class="py-2">
+                                        <!-- <td class="py-2">
                                                         <p class="text-xs">{{ $book->user_id }}</p>
                                                     </td>
                                                     <td class="py-2">
@@ -66,27 +63,35 @@
                                                     <td class="py-2">
                                                         <p class="text-xs">{{ $book->date_returned }}</p>
                                                     </td> -->
-                                <td class="py-2">
+                                        <td class="py-2">
 
-                                    <form method="POST" action="/catalog/{{$book->id}}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
+                                            <form method="POST" action="/catalog/{{$book->id}}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="inline-flex items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
 
 
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
+
     </div>
-</div>
+</section>
+
 
 <!-- Footer-->
 <footer class="text-gray-600 body-font fixed bottom-0">
