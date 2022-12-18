@@ -3,7 +3,7 @@
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col w-full mb-1 lg:w-11/12 md:w-11/12 mx-auto">
-            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">All Logs</h1>
+            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Current Borrowed Books</h1>
 
             <!-- Borrowed Books -->
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -44,11 +44,12 @@
                                 {{ $book->date_returned }}
                             </td>
                             <td class="py-1 px-6">
+
                                 @if($now->between($book->date_borrowed, $book->date_returned))
-
-                                No
+                                <p class="font-bold"> No </p>
+                                @elseif($book->date_borrowed == null && $book->date_returned ==null)
+                                <p class="font-bold text-red-500"> - </p>
                                 @else
-
                                 <p class="font-bold text-red-500"> Yes </p>
                                 @endif
 
@@ -123,11 +124,12 @@
                                 @endif
                             </td>
                             <td class="py-1 px-6">
+
                                 @if($now->between($book->date_borrowed, $book->date_returned))
-
-                                No
+                                <p class="font-bold"> No </p>
+                                @elseif($book->date_borrowed == null && $book->date_returned == null)
+                                <p class="font-bold text-red-500"> - </p>
                                 @else
-
                                 <p class="font-bold text-red-500"> Yes </p>
                                 @endif
 
@@ -136,11 +138,20 @@
                                 <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
                                 <div>
                                     <a href="/dashboard/logbook/{{$book->id}}/assignbook" class="mb-4">
-                                        <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                                        <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-2 md:mt-0 text-white">
                                             <i class="fa-solid fa-hand-holding-heart"></i>
                                         </button>
                                     </a>
+
+                                    <form method="POST" action="/dashboard/logbook/makeavailable/{{$book->id}}">
+                                        @csrf
+                                        <button class="inline-block items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-2 mb-2 text-white">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </button>
+                                    </form>
                                 </div>
+
+
                             </td>
                         </tr>
                         @endforeach

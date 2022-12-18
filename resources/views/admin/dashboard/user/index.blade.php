@@ -63,14 +63,14 @@
                                 <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
                                 <div>
                                     <a href="/dashboard/users/{{$user->id}}/edit" class="mb-4">
-                                        <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                                        <button class="inline-block items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-2 text-white">
                                             <i class="fa-solid fa-pencil"></i>
                                         </button>
                                     </a>
                                     <form method="POST" action="/dashboard/users/{{$user->id}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
+                                        <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-2 mb-2 text-white">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>

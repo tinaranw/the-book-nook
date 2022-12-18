@@ -85,6 +85,9 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Update log
     Route::put('/dashboard/logbook/{book}', [AdminBookController::class, 'updatelog']);
 
+    //Change availibility status
+    Route::post('/dashboard/logbook/makeavailable/{book}', [AdminBookController::class, 'makeavailable']);
+
     //BOOKS
 
     //Show all books

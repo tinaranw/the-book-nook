@@ -48,24 +48,16 @@
                                 {{ $book->date_returned }}
                             </td>
                             <td class="py-1 px-6">
+
                                 @if($now->between($book->date_borrowed, $book->date_returned))
-
-                                No
+                                <p class="font-bold"> No </p>
+                                @elseif($book->date_borrowed == null && $book->date_returned == null)
+                                <p class="font-bold text-red-500"> - </p>
                                 @else
-
                                 <p class="font-bold text-red-500"> Yes </p>
                                 @endif
 
                             </td>
-                            <!-- <td class="py-1 px-6">
-                                <div>
-                                    <a href="/catalog/books/{{$book->id}}/edit" class="mb-4">
-                                        <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
-                                            <i class="fa-solid fa-pencil"></i>
-                                        </button>
-                                    </a>
-                                </div>
-                            </td> -->
                         </tr>
                         @endforeach
                     </tbody>

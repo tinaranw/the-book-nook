@@ -179,7 +179,7 @@ class BookController extends Controller
         //Data Validation
         $formFields = $request->validate([
             'user_id' => 'required',
-        ]); 
+        ]);
         $book->status = '1';
         //Log day 
         $book->date_borrowed = Carbon::now()->format('Y-m-d H:i:s');
@@ -189,6 +189,27 @@ class BookController extends Controller
         // dd($formFields['user_id']);
 
         $book->update($formFields);
+
+        return redirect('/dashboard/logbook');
+    }
+
+    public function makeavailable(book $book)
+    {
+
+        //Log day 
+        $book->date_borrowed = null;
+
+        //Add Due Date
+        $book->date_returned = null;
+
+        //Change user
+        $book->user_id = null;
+
+        //Change status
+        $book->status = "0";
+
+        //Update book data
+        $book->save();
 
         return redirect('/dashboard/logbook');
     }
