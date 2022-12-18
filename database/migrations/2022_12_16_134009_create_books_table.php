@@ -27,7 +27,7 @@ return new class extends Migration
             ->comment('0 = Available, 1 = Borrowed, 2 = Due');
             $table->date('date_borrowed')->nullable();
             $table->date('date_returned')->nullable();
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

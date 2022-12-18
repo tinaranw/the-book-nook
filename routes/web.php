@@ -95,6 +95,8 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     Route::delete('/dashboard/books/{book}', [AdminBookController::class, 'destroy']);
 
     //USERS
+
+    //Show all users
     Route::get('/dashboard/users', [RegisterController::class, 'index']);
 
     //Show create user form
@@ -110,6 +112,9 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
 
     //Update user data
     Route::put('/dashboard/users/{user}', [RegisterController::class, 'update']);
+
+    //Delete user data
+    Route::delete('/dashboard/users/{user}', [RegisterController::class, 'destroy']);
 });
 
 /////////

@@ -96,4 +96,11 @@ class RegisterController extends Controller
 
         return redirect('/dashboard/users');
     }
+
+    public function destroy(user $user)
+    {
+        $user->books()->delete();
+        $user->delete();
+        return redirect('/dashboard/users');
+    }
 }
