@@ -99,7 +99,9 @@ class BookController extends Controller
     public function borrow(book $book)
     {
         $book->user_id = auth()->user()->id;
-        $book->status = '1';
+        //Set status to requested
+        
+        $book->status = "2";
         //Log day 
         $book->date_borrowed = Carbon::now()->format('Y-m-d H:i:s');
         //Add Due Date

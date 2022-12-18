@@ -126,7 +126,12 @@ class BookController extends Controller
     {
 
         //Get all borrowed books
-        $books = Book::where('status', '1')->get();
+        $borrowedbooks = Book::where('status', '1')->get();
+
+        //Get all requested books
+        $requestedbooks = Book::where('status', '2')->get();
+
+        // dd( $requestedbooks);
 
         //Check current date
         $now = Carbon::now();
@@ -134,7 +139,7 @@ class BookController extends Controller
         //Get all users
         $users = User::all();
 
-        return view('admin.index')->with(compact('books', 'users', 'now'));
+        return view('admin.index')->with(compact('borrowedbooks', 'requestedbooks', 'users', 'now'));
     }
 
     /* See logbook */
@@ -191,6 +196,24 @@ class BookController extends Controller
         $book->update($formFields);
 
         return redirect('/dashboard/logbook');
+    }
+
+    public function allowborrow(book $book)
+    {
+
+        //Log day 
+        $book->date_borrowed = Carbon::now()->format('Y-m-d H:i:s');
+
+        //Add Due Date
+        $book->date_returned = Carbon::now()->addDays(7);
+
+        //Change status
+        $book->status = "1";
+
+        //Update book data
+        $book->save();
+
+        return redirect('/dashboard');
     }
 
     public function makeavailable(book $book)

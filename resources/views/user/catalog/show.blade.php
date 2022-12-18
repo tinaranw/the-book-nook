@@ -19,26 +19,30 @@
                         Available
                         @elseif($book->user_id == Auth::user()->id)
                         Borrowed
+                        @elseif($book->status == 2)
+                        Requested
                         @else
                         Unavailable
                         @endif
                     </span>
                     @auth
                     @if($book->status == 1 && $book->user_id == Auth::user()->id)
-                    <!-- if available -->
+                    <!-- if already borrowed -->
                     <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Already borrowed</button>
 
-                    @elseif($book->status == 1)
-                    <!-- if borrowed by someone else -->
-                    <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Unavailable</button>
+                    @elseif($book->status == 2)
+                    <!-- if alredy requested -->
+                    <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Requested</button>
 
                     @elseif($book->status == 0)
+                    <!-- if alredy available -->
                     <form method="POST" action="/catalog/borrow/{{$book->id}}">
                         @csrf
                         <button class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Borrow</button>
                     </form>
-                    @else
-                    <!-- if requesting -->
+
+                    @elseif($book->status == 1 && $book->user_id != Auth::user()->id)
+                    <!-- if borrowed by somebody else -->
                     <button disabled class="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded disabled:opacity-25">Unavailable</button>
                     @endif
                     @endauth

@@ -44,11 +44,17 @@
 
                         <p class="text-xs mb-3">{{ $book->synopsis }}</p>
 
-                        @if($now->between($book->date_borrowed, $book->date_returned))
+                        @if($book->status == 1)
 
                         <div class="flex items-center flex-wrap ">
                             <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Deadline: {{ $book->date_returned }}</a>
                         </div>
+
+                        @elseif($book->status == 2)
+                        <div class="flex items-center flex-wrap ">
+                            <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Requested</a>
+                        </div>
+
                         @else
                         <div class="flex items-center flex-wrap ">
                             <a class="text-pink-500 inline-flex items-center md:mb-2 lg:mb-0">Due date has passed!</a>
