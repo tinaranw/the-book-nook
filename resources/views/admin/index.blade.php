@@ -4,7 +4,7 @@
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col w-full mb-1 lg:w-11/12 md:w-11/12 mx-auto">
-            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Borrowed Books</h1>
+            <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Requested Books</h1>
 
             <!-- Requested Books -->
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
