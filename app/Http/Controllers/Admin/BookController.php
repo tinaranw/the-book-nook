@@ -69,9 +69,9 @@ class BookController extends Controller
      */
     public function show(book $book)
     {
-        // return view('user.catalog.show', [
-        //     'book' => $book
-        // ]);
+        return view('admin.dashboard.books.show', [
+            'book' => $book
+        ]);
     }
 
     /**

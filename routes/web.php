@@ -88,8 +88,8 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Change availibility status
     Route::post('/dashboard/logbook/makeavailable/{book}', [AdminBookController::class, 'makeavailable']);
 
-     //Change availibility status
-     Route::post('/dashboard/allowborrow/{book}', [AdminBookController::class, 'allowborrow']);
+    //Change availibility status
+    Route::post('/dashboard/allowborrow/{book}', [AdminBookController::class, 'allowborrow']);
 
     //BOOKS
 
@@ -110,6 +110,9 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
 
     //Delete book
     Route::delete('/dashboard/books/{book}', [AdminBookController::class, 'destroy']);
+
+    //Show book details
+    Route::get('/dashboard/books/{book}', [AdminBookController::class, 'show']);
 
     //USERS
 
