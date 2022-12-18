@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use App\Models\Published;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Book extends Model
+class Comic extends Model
 {
     use HasFactory;
 
     protected $fillable = ['title', 'cover_image', 'genre_tags', 'synopsis', 'description', 'status', 'user_id'];
 
-    //Relationship to User
     public function user()
     {
         //(class, foreign id) 

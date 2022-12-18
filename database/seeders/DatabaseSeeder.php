@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             BookSeeder::class,
+            ComicSeeder::class,
+            PublishedSeeder::class
         ]);
     }
 }

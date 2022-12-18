@@ -43,7 +43,7 @@
                                 {{ $book->title }}
                             </th>
                             <td class="py-1 px-6">
-                                {{ $book->author }}
+                                {{ $book->publishers->first() }}
                             </td>
                             <td class="py-1 px-6">
                                 {{ $book->year_published }}

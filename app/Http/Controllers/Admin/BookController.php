@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Book as Book;
 use App\Models\User as User;
+use App\Models\Published as Published;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
@@ -19,9 +20,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.books.index', [
-            'books' => Book::all()
-        ]);
+        $books = Book::all();
+
+        return view('admin.dashboard.books.index')->with(compact('books'));
     }
 
     /**
@@ -56,7 +57,13 @@ class BookController extends Controller
             $formFields['cover_image'] = $request->file('cover_image')->store('cover_image', 'public');
         }
 
-        Book::create($formFields);
+        $book = Book::create($formFields);
+
+        //Pollymorphism with Published Table, polymorphicnya hanya ini saja yang bekerja ;(
+        $published = new Published();
+        $published->author = $formFields['author'];
+        $published->year_published = $formFields['year_published'];
+        $book->publishers()->save($published);
 
         return redirect('/dashboard/books');
     }
@@ -105,6 +112,20 @@ class BookController extends Controller
         ]);
 
         $book->update($formFields);
+
+        //Polymorphic
+
+        // $book = Book::find($book->id);
+
+        // dd($book->publishers->publishedable_id);
+        // if ($book->publishers->publishedable_id == $book->id) {
+        //     $book->publishers->author = $formFields['author'];
+        //     $book->publishers->year_published = $formFields['year_published'];
+        //     $book->publishers()->update([
+        //         'author' => $formFields['author'],
+        //         'year_published' => $formFields['year_published'],
+        //     ]);
+        // }
 
         return redirect('/dashboard/books');
     }
