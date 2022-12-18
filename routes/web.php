@@ -74,11 +74,13 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Show main dashboard
     Route::get('/dashboard', [AdminBookController::class, 'dashboard']);
 
-    //Show upload a new book form
-    Route::get('/dashboard/books/create', [AdminBookController::class, 'create']);
+    //BOOKS
 
     //Show all books
     Route::get('/dashboard/books', [AdminBookController::class, 'index']);
+
+    //Show upload a new book form
+    Route::get('/dashboard/books/create', [AdminBookController::class, 'create']);
 
     //Store book data
     Route::post('/dashboard/books', [AdminBookController::class, 'store']);
@@ -91,9 +93,25 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
 
     //Delete book
     Route::delete('/dashboard/books/{book}', [AdminBookController::class, 'destroy']);
+
+    //USERS
+    Route::get('/dashboard/users', [RegisterController::class, 'index']);
+
+    //Show create user form
+    Route::get('/dashboard/users/create', function () {
+        return view('admin.dashboard.user.create');
+    });
+
+    //Create user
+    Route::post('/dashboard/users/admincreateuser', [RegisterController::class, 'admincreateuser']);
+
+    //Show edit user form
+    Route::get('/dashboard/users/{user}/edit', [RegisterController::class, 'edit']);
+
+    //Update user data
+    Route::put('/dashboard/users/{user}', [RegisterController::class, 'update']);
 });
 
 /////////
 //Show single book, it must be at the bottom orelse everything else will be 404
 Route::get('/catalog/{book}', [UserBookController::class, 'show']);
-

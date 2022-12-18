@@ -5,7 +5,7 @@
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col w-full mb-1 lg:w-11/12 md:w-11/12 mx-auto">
             <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Manage Users</h1>
-            <a href="/dashboard/user/create" class="mb-4">
+            <a href="/dashboard/users/create" class="mb-4">
                 <button class="float-right block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 text-white">
                     <i class="fa-solid fa-plus"></i> Add new user
                 </button>
@@ -16,16 +16,22 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="py-3 px-6">
-                                Title
+                                Name
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Author
+                                Email
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Year Published
+                                Phone Number
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Genre Tags
+                                Address
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                City
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Birthdate
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Action
@@ -33,29 +39,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($books as $book)
+                        @foreach($users as $user)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $book->title }}
+                                {{ $user->name }}
                             </th>
                             <td class="py-1 px-6">
-                                {{ $book->author }}
+                                {{ $user->email }}
                             </td>
                             <td class="py-1 px-6">
-                                {{ $book->year_published }}
+                                {{ $user->phone_number }}
                             </td>
                             <td class="py-1 px-6">
-                                {{ $book->genre_tags }}
+                                {{ $user->address }}
+                            </td>
+                            <td class="py-1 px-6">
+                                {{ $user->city }}
+                            </td>
+                            <td class="py-1 px-6">
+                                {{ $user->birthdate }}
                             </td>
                             <td class="py-1 px-6">
                                 <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
                                 <div>
-                                    <a href="/dashboard/{{$book->id}}/edit" class="mb-4">
+                                    <a href="/dashboard/users/{{$user->id}}/edit" class="mb-4">
                                         <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
                                             <i class="fa-solid fa-pencil"></i>
                                         </button>
                                     </a>
-                                    <form method="POST" action="/dashboard/{{$book->id}}">
+                                    <form method="POST" action="/dashboard/users/{{$user->id}}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="inline-block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 text-white">
