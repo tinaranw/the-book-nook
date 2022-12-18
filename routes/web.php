@@ -74,6 +74,17 @@ Route::group(['middleware' => ['auth', 'admin:admin']], function () {
     //Show main dashboard
     Route::get('/dashboard', [AdminBookController::class, 'dashboard']);
 
+    //LOGBBOOK
+
+    //Show all records
+    Route::get('/dashboard/logbook', [AdminBookController::class, 'logbook']);
+
+    //Show assign book form
+    Route::get('/dashboard/logbook/{book}/assignbook', [AdminBookController::class, 'assignbook']);
+
+    //Update log
+    Route::put('/dashboard/logbook/{book}', [AdminBookController::class, 'updatelog']);
+
     //BOOKS
 
     //Show all books

@@ -5,6 +5,8 @@
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col w-full mb-1 lg:w-11/12 md:w-11/12 mx-auto">
             <h1 class="text-left sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">Manage Books</h1>
+            
+            <!-- Add a new book button -->
             <a href="/dashboard/books/create" class="mb-4">
                 <button class="float-right block items-center bg-pink-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 text-white">
                     <i class="fa-solid fa-plus"></i> Add a new book

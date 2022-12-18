@@ -136,5 +136,60 @@ class BookController extends Controller
 
         return view('admin.index')->with(compact('books', 'users', 'now'));
     }
-}
 
+    /* See logbook */
+    public function logbook()
+    {
+
+        //Get all books
+        $books = Book::all();
+
+        //Get all borrowed books
+        $borrowedbooks = Book::where('status', '1')->get();
+
+        //Check current date
+        $now = Carbon::now();
+
+        //Get all users
+        $users = User::latest();
+
+        return view('admin.dashboard.logbook.index')->with(compact('books', 'borrowedbooks', 'users', 'now'));
+    }
+
+    public function assignbook(book $book)
+    {
+        //Get all users
+        $users = User::all();
+
+        //Get all books
+        $books = Book::all();
+        return view('admin.dashboard.logbook.edit')->with(compact('books', 'book', 'users'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdatebookRequest  $request
+     * @param  \App\Models\book  $book
+     * @return \Illuminate\Http\Response
+     */
+    public function updatelog(UpdatebookRequest $request, book $book)
+    {
+
+        //Data Validation
+        $formFields = $request->validate([
+            'user_id' => 'required',
+        ]); 
+        $book->status = '1';
+        //Log day 
+        $book->date_borrowed = Carbon::now()->format('Y-m-d H:i:s');
+        //Add Due Date
+        $book->date_returned = Carbon::now()->addDays(7);
+
+        // dd($formFields['user_id']);
+
+        $book->update($formFields);
+
+        return redirect('/dashboard/logbook');
+    }
+}

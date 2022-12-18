@@ -71,7 +71,7 @@ class BookSeeder extends Seeder
         $book->status = '1';
         $book->user_id = 2;
         $book->date_borrowed = Carbon::parse('2022-04-10');
-        $book->date_returned = Carbon::parse('2022-05-13');
+        $book->date_returned = Carbon::parse('2023-04-01');
         $book->save();
     }
 }

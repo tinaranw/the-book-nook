@@ -53,7 +53,7 @@
                                 No
                                 @else
 
-                                Yes
+                                <p class="font-bold text-red-500"> Yes </p>
                                 @endif
 
                             </td>
